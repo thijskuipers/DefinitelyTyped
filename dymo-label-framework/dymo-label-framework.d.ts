@@ -322,6 +322,20 @@ declare module dymo.label.framework {
 		print(printerName: string, printParamsXml: string, labelSetXml: string): void;
 
 		/**
+		 * Prints the label and returns a PrintJob.
+		 *
+     	 * @param printerName The name of the printer to print to. A list of printers can be obtained using dymo.label.framework.getPrinters.
+     	 * @param printParamsXml The print parameters, such as number of copies, print quality, etc. See [PrintParams.xsd]{@link http://labelwriter.com/software/dls/sdk/PrintParams.xsd}.
+     	 * @param labelSetXml
+		 *   The LabelSet to print. LabelSet is used to print multiple labels with the same layout, but with different
+		 *   data, such as multiple addresses. Use the dymo.label.framework.LabelSetBuilder class to create a LabelSet
+		 *   or construct XML manually according to [LabelSet.xsd]{@link http://labelwriter.com/software/dls/sdk/LabelSet.xsd}.
+		 * 
+		 * @returns The print job.
+		 */
+		print2(printerName: string, printParamsXml: string, labelSetXml: string): PrintJob;
+
+		/**
 		 * Prints a label and runs status checking in a loop
 		 *
      	 * @param printerName The name of the printer to print to. A list of printers can be obtained using dymo.label.framework.getPrinters.
